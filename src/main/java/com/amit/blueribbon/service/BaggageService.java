@@ -19,6 +19,10 @@ public class BaggageService {
 
     public boolean checkinSucceeded(String baggageId, Long destinationId) {
         Baggage baggage = baggageRepository.findFirstByBaggageIdAndDestinationId(baggageId, destinationId);
+        if (baggage == null){
+            log.warn("there is no baggage for this params");
+            return false;
+        }
         log.info("checkin status for baggage for id {} is {}", baggageId, baggage.isCheckin());
         return baggage.isCheckin();
     }

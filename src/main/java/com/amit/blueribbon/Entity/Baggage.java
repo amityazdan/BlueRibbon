@@ -1,6 +1,7 @@
 package com.amit.blueribbon.Entity;
 
 
+import com.sun.istack.NotNull;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -16,13 +17,16 @@ public class Baggage {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotNull
     @Column(name = "baggageId")
     private String baggageId;
 
+    @NotNull
     @ManyToOne
     @JoinColumn(name = "destination")
     private Destination destination;
 
+    @NotNull
     @Column(name = "checkin")
     private boolean checkin;
 
