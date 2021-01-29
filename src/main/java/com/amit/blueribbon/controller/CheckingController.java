@@ -21,7 +21,7 @@ public class CheckingController {
 
     @GetMapping("/checking")
     public boolean checkinSucceeded(@Validated @NotNull @RequestParam(name = "baggageId") String baggageId,
-                                    @Validated @NotNull@RequestParam(name = "destinationId") Long destinationId) {
+                                    @Validated @NotNull @RequestParam(name = "destinationId") Long destinationId) {
         log.info("rest request to check id baggage is checked in for baggage id {}", baggageId);
         return baggageService.checkinSucceeded(baggageId, destinationId);
     }
